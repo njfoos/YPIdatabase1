@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagram version="1" name="YPI Phase 1.erd.erd">
+	<entities>
+		<data-source id="postgres-jdbc-19cb4c18988-c420a49e3dfe5ec">
+			<entity id="1" name="Audience Keyword Metrics" fq-name="public.&quot;Audience Keyword Metrics&quot;" order="0" x="293" y="87">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="2" name="Creator Keyword Metric CNA" fq-name="public.&quot;Creator Keyword Metric CNA&quot;" order="1" x="558" y="205">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="3" name="Creator platform profiles" fq-name="public.&quot;Creator platform profiles&quot;" order="2" x="558" y="389">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="4" name="Follower Information" fq-name="public.&quot;Follower Information&quot;" order="3" x="40" y="429">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="5" name="Metric Definitions" fq-name="public.&quot;Metric Definitions&quot;" order="4" x="40" y="1077">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="6" name="Platform Benchmarks" fq-name="public.&quot;Platform Benchmarks&quot;" order="5" x="558" y="673">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="7" name="Raw Metrics" fq-name="public.&quot;Raw Metrics&quot;" order="6" x="40" y="633">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="8" name="Time Dimension" fq-name="public.&quot;Time Dimension&quot;" order="7" x="293" y="547">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="9" name="audience" fq-name="public.audience" order="8" x="558" y="40">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="10" name="content" fq-name="public.&quot;content&quot;" order="9" x="293" y="771">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="11" name="creator" fq-name="public.creator" order="10" x="838" y="97">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="12" name="niche" fq-name="public.niche" order="11" x="838" y="773">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+			<entity id="13" name="platform" fq-name="public.platform" order="12" x="838" y="616">
+				<path name="public"/>
+				<path name="postgres"/>
+			</entity>
+		</data-source>
+	</entities>
+	<relations>
+		<relation name="profileID_fk" fq-name="public.&quot;Follower Information&quot;.&quot;profileID_fk&quot;" type="fk" pk-ref="3" fk-ref="4"/>
+		<relation name="profile_fk" fq-name="public.&quot;content&quot;.profile_fk" type="fk" pk-ref="3" fk-ref="10"/>
+		<relation name="dateID_fk" fq-name="public.&quot;Follower Information&quot;.&quot;dateID_fk&quot;" type="fk" pk-ref="8" fk-ref="4"/>
+		<relation name="dateID_fk" fq-name="public.&quot;Raw Metrics&quot;.&quot;dateID_fk&quot;" type="fk" pk-ref="8" fk-ref="7"/>
+		<relation name="audience_fk" fq-name="public.&quot;Audience Keyword Metrics&quot;.audience_fk" type="fk" pk-ref="9" fk-ref="1"/>
+		<relation name="content_fk" fq-name="public.&quot;Raw Metrics&quot;.content_fk" type="fk" pk-ref="10" fk-ref="7"/>
+		<relation name="creator_fk" fq-name="public.&quot;Audience Keyword Metrics&quot;.creator_fk" type="fk" pk-ref="11" fk-ref="1"/>
+		<relation name="creator_fk" fq-name="public.&quot;Creator Keyword Metric CNA&quot;.creator_fk" type="fk" pk-ref="11" fk-ref="2"/>
+		<relation name="creator_fk" fq-name="public.&quot;Creator platform profiles&quot;.creator_fk" type="fk" pk-ref="11" fk-ref="3"/>
+		<relation name="creatorID_fk" fq-name="public.audience.&quot;creatorID_fk&quot;" type="fk" pk-ref="11" fk-ref="9"/>
+		<relation name="niche_fk" fq-name="public.&quot;Platform Benchmarks&quot;.niche_fk" type="fk" pk-ref="12" fk-ref="6"/>
+		<relation name="platform_fk" fq-name="public.&quot;Creator platform profiles&quot;.platform_fk" type="fk" pk-ref="13" fk-ref="3"/>
+		<relation name="platform_fk" fq-name="public.&quot;Platform Benchmarks&quot;.platform_fk" type="fk" pk-ref="13" fk-ref="6"/>
+	</relations>
+</diagram>
